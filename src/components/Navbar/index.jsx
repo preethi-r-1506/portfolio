@@ -69,7 +69,11 @@ export default function Navbar() {
               onClick={() => handleNav('#home')}
               className="font-display font-bold text-lg gradient-text"
             >
-              PR
+              <img
+                src="/assets/logo-nb.png"
+                alt="Preethi Ravi"
+                className="w-12 h-12 object-contain relative z-10"
+              />
             </button>
 
             {/* Desktop links */}

@@ -32,7 +32,10 @@ function SkillBadge({ skill, accent, label, delay }) {
         e.currentTarget.style.borderColor = 'rgba(168,85,247,0.12)';
       }}
     >
-      <span className="text-base">{skill.icon}</span>
+      <span className="text-base"><img
+                  src={skill.icon}
+                  alt={skill.name}
+                  className="w-8 h-8 object-contain relative z-10" /></span>
       <span className="font-mono text-xs" style={{ color: label }}>{skill.name}</span>
     </motion.div>
   );
@@ -116,12 +119,14 @@ export default function Skills() {
         >
           <div className="flex gap-3 animate-marquee whitespace-nowrap" style={{ animation: 'marquee 30s linear infinite' }}>
             {[...Object.values(skills).flat(), ...Object.values(skills).flat()].map((s, i) => (
-              <span
-                key={`${s.name}-${i}`}
-                className="font-mono text-xs px-3 py-1.5 rounded-full shrink-0"
-                style={{ background: 'rgba(124,58,237,0.1)', color: 'rgba(192,132,252,0.5)', border: '1px solid rgba(124,58,237,0.15)' }}
-              >
-                {s.icon} {s.name}
+              <span key={`${s.name}-${i}`}
+                className="inline-flex items-center gap-2 font-mono text-xs px-3 py-1.5 rounded-full shrink-0"
+                style={{ background: 'rgba(124,58,237,0.1)', color: 'rgba(192,132,252,0.5)', border: '1px solid rgba(124,58,237,0.15)' }} >
+                <img
+                  src={s.icon}
+                  alt={s.name}
+                  className="w-8 h-8 object-contain relative z-10" />
+                {s.name}
               </span>
             ))}
           </div>
